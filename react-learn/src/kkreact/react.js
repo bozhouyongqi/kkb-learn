@@ -42,12 +42,23 @@ export function createElement(type, props, ...children) {
 export function Component(props, context, updater) {
     this.props = props;
     this.state = {};
+    this.$cache = {};
 }
 
 Component.prototype.isReactComponent = true;
 
 Component.prototype.setState = function (nextState, callback) {
+    if (typeof nextState === 'function') {
 
+    }
+    else {
+        // 这里不进行批处理，直接覆盖
+        this.state = {
+            ...this.state,
+            ...nextState
+        };
+        this.forceUpdate(callback);
+    }
 };
 
 Component.prototype.forceUpdate = function (callback) {

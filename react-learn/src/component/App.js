@@ -9,41 +9,24 @@
 import React, {Component} from '../kkreact/react';
 
 export default class App extends Component {
-
     constructor(props) {
         super(props);
+        this.state = {
+            count: 0
+        };
+    }
+
+    click = () => {
+        this.setState({count: this.state.count++});
     }
 
     render() {
+        const name = this.props && this.props.name || "default";
         return (
             <div>
-                文本节点1
-                文本节点2
-                文本节点3
-                {/* <FunctionComponent />
-                <ClassComponent></ClassComponent> */}
+                我是app组件 {name}
+                <buton onClick={this.click}></buton>
             </div>
         );
     }
-}
-
-class ClassComponent extends Component {
-
-    render() {
-        const {name} = this.props && this.props.name || 'deault';
-        return (
-            <div>
-                我是class组件 {name}
-            </div>
-        );
-    }
-}
-
-function FunctionComponent(props) {
-
-    const {name} = props && props.name || 'default';
-
-    return (
-        <div>我是Function 组件 {name}</div>
-    );
 }

@@ -65,7 +65,11 @@ function initHtmlElementNode(vNode, container) {
 }
 
 function initClassComponentNode(vNode, container) {
-   
+    const Type = vNode.type; // 这个type是个class组件，需要先生成一个函数实例，再调用render生成虚拟node
+    const instance = new Type(vNode.props);
+    const vvNode = instance.render();
+    const node = initNode(vvNode, container);
+    return node;
 }
 
 function initFuncComponentNode(vNode, container) {

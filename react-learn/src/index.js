@@ -15,13 +15,14 @@ function onClick() {
 }
 
 const jsx = (
-    <div className={style.wrapper} onClick={onClick}>
+    <div>
         文本节点1
         文本节点2
-        <div>文本节点3</div>
-        {/* <App></App> */}
+        <div className={style.wrapper} onClick={onClick}>文本节点3</div>
         <FunctionComponent name="function 1"></FunctionComponent>
         <FunctionComponent name="function 2"></FunctionComponent>
+        <App ></App>
+        <App name="class组件1"></App>
     </div>
 );
 
