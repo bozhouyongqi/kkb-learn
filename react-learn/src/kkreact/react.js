@@ -5,27 +5,17 @@
  * @file react.js
  * @description 自己实现的react源码中的组件
  */
-
-export const TEXT_NODE_TYPE = 0;
-export const HTML_ELEMENT_TYPE = 1;
-export const CLASS_NODE_TYPE = 2;
-export const FUNCTION_NODE_TYPE = 3;
-//  其实react中定义了很多类型，例如Fragment类型，Provider组件类型，StrictMode组件类型，Profiler组件类型等等
-
+import {TEXT_NODE_TYPE, HTML_ELEMENT_TYPE, CLASS_NODE_TYPE, FUNCTION_NODE_TYPE} from './type';
 
 export function createElement(type, props, ...children) {
     // 经过babel转换的jsx语法不是明确的一个树形结构，需要将其转换成一颗树状结构
+    console.log('createElement')
     console.log(type);
     console.log(props);
-    console.log('children ', children);
-    console.log('children type : ', Array.isArray(children))
-
+    console.log(children);
     let vType;
-    if (!type) {
-        // 说明这是一个文件节点
-        vType = TEXT_NODE_TYPE;
-    }
-    else if (typeof type === 'string') {
+    // 若是文本节点,bebel不会转成createElement的形式，所以这里不用判断
+    if (typeof type === 'string') {
         // 说明这是一个原生标签
         vType = HTML_ELEMENT_TYPE;
     }
@@ -49,15 +39,22 @@ export function createElement(type, props, ...children) {
     };
 }
 
-export function Component() {
-
-
+export function Component(props, context, updater) {
+    this.props = props;
+    this.state = {};
 }
 
 Component.prototype.isReactComponent = true;
 
+Component.prototype.setState = function (nextState, callback) {
+
+};
+
+Component.prototype.forceUpdate = function (callback) {
+
+};
+
 export function PureComponent(props) {
-    
 }
 
 Component.prototype.isPureReactComponent = true;

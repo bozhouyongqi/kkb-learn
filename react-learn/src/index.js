@@ -13,12 +13,12 @@ const jsx = (
     <div>
         文本节点1
         文本节点2
-        <App></App>
-        <FunctionComponent></FunctionComponent>
+        <div>文本节点3</div>
+        {/* <App></App>
+        <FunctionComponent></FunctionComponent> */}
 
     </div>
 );
-console.log('jsx ', jsx);
 
 function FunctionComponent(props) {
 
