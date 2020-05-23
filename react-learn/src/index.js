@@ -5,9 +5,29 @@
  * @file index.js
  */
 
-import React from 'react';
-import ReactDom from 'react-dom';
+import React from './kkreact/react';
+import ReactDom from './kkreact/react-dom';
 import App from './component/App';
 
-ReactDom.render(<App />, document.getElementById('root'));
+const jsx = (
+    <div>
+        文本节点1
+        文本节点2
+        <App></App>
+        <FunctionComponent></FunctionComponent>
+
+    </div>
+);
+console.log('jsx ', jsx);
+
+function FunctionComponent(props) {
+
+    const {name} = props && props.name || 'default';
+
+    return (
+        <div>我是Function 组件 {name}</div>
+    );
+}
+
+ReactDom.render(jsx, document.getElementById('root'));
 
