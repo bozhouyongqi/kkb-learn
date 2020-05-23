@@ -30,7 +30,18 @@ module.exports = {
                 test: /\.css$/,
                 use: [
                     'style-loader',
-                    'css-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            // CSS Loader https://github.com/webpack/css-loader
+                            importLoaders: 1,
+                            sourceMap: isDebug,
+                            // CSS Modules https://github.com/css-modules/css-modules
+                            modules: {
+                                localIdentName: isDebug ? '[name]-[local]-[hash:base64:5]' : '[hash:base64:5]'
+                            }
+                        }
+                    },
                     {
                         loader: 'postcss-loader',
                         options: {

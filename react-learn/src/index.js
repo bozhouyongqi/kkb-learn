@@ -8,9 +8,14 @@
 import React from './kkreact/react';
 import ReactDom from './kkreact/react-dom';
 import App from './component/App';
+import style from './app.css'; // 样式隔离
+
+function onClick() {
+    console.log('clicked the div')
+}
 
 const jsx = (
-    <div>
+    <div className={style.wrapper} onClick={onClick}>
         文本节点1
         文本节点2
         <div>文本节点3</div>

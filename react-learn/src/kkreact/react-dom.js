@@ -48,6 +48,18 @@ function initHtmlElementNode(vNode, container) {
             node.appendChild(childNode);
         }
     }
+    // 添加属性及简单的事件处理
+    const props = vNode.props;
+    if (props) {
+        Object.keys(props).forEach(key => {
+            if (key === 'className') {
+                node.setAttribute('class', props[key]);
+            }
+            else if (key.startsWith('on')) {
+                node.addEventListener(key.slice(2).toLowerCase(), props[key]);
+            }
+        });
+    }
 
     return node;
 }
