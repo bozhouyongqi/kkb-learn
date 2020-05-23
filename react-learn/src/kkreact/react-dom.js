@@ -69,7 +69,10 @@ function initClassComponentNode(vNode, container) {
 }
 
 function initFuncComponentNode(vNode, container) {
-    
+    const type = vNode.type; // 这个type是个普通的函数，直接执行生成vNode;
+    const vvNode = type(vNode.props);
+    const node = initNode(vvNode, container);
+    return node;
 }
 
  export default {

@@ -19,20 +19,21 @@ const jsx = (
         文本节点1
         文本节点2
         <div>文本节点3</div>
-        {/* <App></App>
-        <FunctionComponent></FunctionComponent> */}
-
+        {/* <App></App> */}
+        <FunctionComponent name="function 1"></FunctionComponent>
+        <FunctionComponent name="function 2"></FunctionComponent>
     </div>
 );
 
 function FunctionComponent(props) {
 
-    const {name} = props && props.name || 'default';
+    const name = (props && props.name) || 'default';
 
     return (
         <div>我是Function 组件 {name}</div>
     );
 }
+
 
 ReactDom.render(jsx, document.getElementById('root'));
 
