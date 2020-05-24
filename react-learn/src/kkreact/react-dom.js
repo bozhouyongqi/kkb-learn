@@ -13,11 +13,11 @@ function render(vNode, container) {
     console.log(vNode);
     console.log('container: ', container);
     const node = initNode(vNode, container);
-    
+
     container.appendChild(node);
 }
 
-function initNode(vNode, container) {
+export function initNode(vNode, container) {
     let node;
     let vType = vNode.vType;
     if (!vType) { // 文本节点不会被bebel转换成createElement的形式，所以不会有type等属性，就是一个字符串
@@ -69,6 +69,11 @@ function initClassComponentNode(vNode, container) {
     const instance = new Type(vNode.props);
     const vvNode = instance.render();
     const node = initNode(vvNode, container);
+    instance.$cache = {
+        vNode: vvNode,
+        node,
+        container
+    };
     return node;
 }
 

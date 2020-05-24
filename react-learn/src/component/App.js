@@ -17,7 +17,8 @@ export default class App extends Component {
     }
 
     click = () => {
-        this.setState({count: this.state.count++});
+        console.log('App click');
+        this.setState({count: ++this.state.count});
     }
 
     render() {
@@ -25,7 +26,10 @@ export default class App extends Component {
         return (
             <div>
                 我是app组件 {name}
-                <buton onClick={this.click}></buton>
+                <div>
+                    count: {this.state.count}
+                </div>
+                <button onClick={this.click}>点击计数</button>
             </div>
         );
     }
