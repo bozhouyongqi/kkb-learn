@@ -29,3 +29,8 @@
 2. script是成对标签
    在serverRender中间件中引入client.bundle.js不是自闭合标签，需使用成对标签<script></script>
 
+#### 浏览器端添加异步请求代码
+使用axios库添加异步请求代码
+axios返回的res的格式中data为服务端返回的数据，除此之外还有config,header,status等字段
+
+

@@ -6,6 +6,7 @@
 const path = require('path');
 const express = require('express');
 const reactRoute = require('../build/server.bundle.js');
+const apiRouter = require('./api');
 
 const app = express();
 const port = 9000;
@@ -15,6 +16,7 @@ app.use(express.static(path.join(__dirname, '../public')));
 
 // 注意这里要从build/server.bundle.js引入该中间件,这个是不会上传至cdn的，这个只在服务端使用
 // 需要确保启动服务时，该目录下已经是最新打包后的文件
+app.use('/api', apiRouter);
 
 app.get('*', reactRoute.handleRoute);
 
