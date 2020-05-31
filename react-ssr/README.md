@@ -23,3 +23,9 @@
 ```
 
 #### 在浏览器端代码添加事件响应，测试逻辑是否正确
+这一步遇到的坑：
+1. public静态目录
+    在serverRender中间件中引入client.bundle.js时,不用再添加public/路径前缀。
+2. script是成对标签
+   在serverRender中间件中引入client.bundle.js不是自闭合标签，需使用成对标签<script></script>
+
