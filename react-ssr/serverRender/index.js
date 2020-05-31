@@ -12,6 +12,7 @@ export function handleRoute(req, res, next) {
     // 回头需要在这里匹配路由
     const ssrString = renderToString(<App />);
 
+    // 这里注意public目录下存放静态文件，但是访问不能再添加public路径
     const html = `
         <html>
             <head>
@@ -23,7 +24,7 @@ export function handleRoute(req, res, next) {
                 ${ssrString}
                 </div>
             </body>
-            <script src="/public/bundle.js" />
+            <script src="/client.bundle.js"></script>
         </html>
     `;
 

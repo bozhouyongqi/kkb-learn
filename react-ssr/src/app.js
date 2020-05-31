@@ -3,15 +3,33 @@
  */
 
 
-import React from 'react';
+import React, {useState, useEffect, Fragment} from 'react';
 
 function App(props) {
-    
+    let [count, setCount] = useState(0);
+    let [isClient, setIsClient] = useState(false);
+    const onCount = event => {
+        setCount(++count);
+    };
+
+    useEffect(() => {
+        setIsClient(true);
+    }, []);
 
     return (
-        <div>hello world!</div>
+        <Fragment>
+           <div>hello world!</div>
+           计数： {count}
+           <div>
+                <button onClick={onCount}>点击计数</button>
+           </div>
+           {
+            isClient ? (
+                <div>in client</div>
+            ) : null
+           }
+        </Fragment>
     );
 };
-
 
 export default App;

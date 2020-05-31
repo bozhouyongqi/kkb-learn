@@ -5,8 +5,10 @@
  */
 // 使用hydrate不会重新渲染组件，只会给组件绑定生命周期方法
 import React from 'react';
-import {hydrate} from 'react-dom';
+import ReactDom from 'react-dom';
 import App from '../src/app';
 
 
-hydrate(<App></App>, document.getElementById('root'));
+ReactDom.hydrate(<App></App>, document.getElementById('root'), function() {
+    console.log('hrdate over!!');
+});
