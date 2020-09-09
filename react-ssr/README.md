@@ -33,4 +33,7 @@
 使用axios库添加异步请求代码
 axios返回的res的格式中data为服务端返回的数据，除此之外还有config,header,status等字段
 
+#### 浏览器端引入react-redux
+2020.06.07
+ 
 
