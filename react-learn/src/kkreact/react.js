@@ -36,7 +36,7 @@ export function createElement(type, props, ...children) {
         type,
         vType,
         props,
-        children
+        children // 这里处理方式有些不对，应该放到props中，props.children = children
     };
 }
 
