@@ -42,9 +42,9 @@ function initHtmlTextNode(vNode, container) {
 function initHtmlElementNode(vNode, container) {
     const node = document.createElement(vNode.type);
     // 检查是否有children,若是有children还需要在继续initNode
-    if (vNode.children && vNode.children.length) {
-        for (let idx = 0; idx < vNode.children.length; idx++) {
-            let childNode = initNode(vNode.children[idx], node);
+    if (vNode.props && vNode.props.children && vNode.props.children.length) {
+        for (let idx = 0; idx < vNode.props.children.length; idx++) {
+            let childNode = initNode(vNode.props.children[idx], node);
             node.appendChild(childNode);
         }
     }

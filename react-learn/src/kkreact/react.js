@@ -30,13 +30,14 @@ export function createElement(type, props, ...children) {
             vType = FUNCTION_NODE_TYPE;
         }
     }
+    props = props || {};
     // 除此之外没有其他的类型了，将其转换成树状结构
+    props.children = children;
 
     return {
         type,
         vType,
-        props,
-        children // 这里处理方式有些不对，应该放到props中，props.children = children
+        props
     };
 }
 
